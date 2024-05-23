@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 
 import userRouter from "./routes/user.route.js";
 import authRouter from "./routes/auth.route.js";
+import listingRouter from "./routes/listing.route.js";
 
 dotenv.config();
 
@@ -28,6 +29,9 @@ app.listen(3000, () => {
 
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
+
+//listing
+app.use("/api/listing", listingRouter);
 
 //middleware
 
