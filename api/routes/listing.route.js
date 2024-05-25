@@ -2,7 +2,8 @@ import express from "express";
 import {
   createListing,
   deleteListing,
-  updateListing
+  updateListing,
+  getListing,
 } from "../controllers/listing.controller.js";
 import { verifyToken } from "../utils/verifyUser.js";
 
@@ -16,5 +17,8 @@ router.delete("/delete/:id", verifyToken, deleteListing);
 
 //edit or update a listing
 router.post("/update/:id", verifyToken, updateListing);
+
+//get a listing based on id
+router.get("/get/:id", getListing);
 
 export default router;
