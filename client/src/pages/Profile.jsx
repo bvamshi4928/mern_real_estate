@@ -42,7 +42,8 @@ const Profile = () => {
   // console.log(file);
   // console.log(filePerc);
   // console.log(fileUploadError);
-  // console.log(formData);
+  console.log(formData);
+  // console.log(currentUser.avatar);
 
   useEffect(() => {
     if (file) {
@@ -68,11 +69,14 @@ const Profile = () => {
         setFileUploadError(true);
       },
       () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          setFormData({ ...formData, avatar: downloadURL });
-        });
+        // console.log(formData);
+
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) =>
+          setFormData({ ...formData, avatar: downloadURL })
+        );
       }
     );
+    // console.log(formData);
   };
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
